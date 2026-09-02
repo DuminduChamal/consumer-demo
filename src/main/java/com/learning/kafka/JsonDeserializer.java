@@ -6,6 +6,11 @@ import org.apache.kafka.common.serialization.Deserializer;
 
 import java.util.Map;
 
+// Generic Deserializer<T> used by JsonConsumer for any target type, decoding
+// via Jackson's ObjectMapper. Since Java generics are erased at runtime,
+// Kafka can't infer T from the type parameter alone — the target class is
+// read from the config map in configure() instead (Kafka instantiates this
+// via a no-arg constructor, then calls configure() with the full Properties).
 public class JsonDeserializer<T> implements Deserializer<T> {
 
     public static final String VALUE_CLASS_CONFIG = "json.deserializer.value.class";

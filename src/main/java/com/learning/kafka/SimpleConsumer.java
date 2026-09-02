@@ -13,6 +13,14 @@ import java.time.Duration;
 import java.util.Collections;
 import java.util.Properties;
 
+// Baseline consumer: the simplest possible poll loop — subscribe, poll
+// forever, print. Default auto-commit (enable.auto.commit=true), no
+// manual offset control. Every other consumer in this project is a
+// variation that changes exactly one thing relative to this one — commit
+// strategy, shutdown handling, or deserialization — so this is the
+// reference point to compare them against. The ConsumerRebalanceListener
+// below is only here to make partition assignment visible when running
+// multiple instances under the same group.id.
 public class SimpleConsumer {
 
     public static void main(String[] args) {

@@ -11,6 +11,14 @@ import java.time.Duration;
 import java.util.Collections;
 import java.util.Properties;
 
+// Change vs. ManualCommitConsumer: commitSync() (blocking) replaced with
+// commitAsync() (non-blocking, with a callback) so the poll loop never
+// stalls on a broker round-trip. Also adds the standard graceful-shutdown
+// idiom: a JVM shutdown hook calls consumer.wakeup() — the one
+// KafkaConsumer method safe to call from another thread — to interrupt a
+// blocked poll() via WakeupException, then a final commitSync() runs in a
+// finally block, since a clean shutdown has no "next" async commit coming
+// along to fix a missed one.
 public class AsyncCommitConsumer {
 
     public static void main(String[] args) {

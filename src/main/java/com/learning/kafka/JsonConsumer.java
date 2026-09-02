@@ -10,6 +10,12 @@ import java.time.Duration;
 import java.util.Collections;
 import java.util.Properties;
 
+// Change vs. SimpleConsumer: deserializes into an actual Java object
+// (OrderEvent) via the custom JsonDeserializer below, instead of a String.
+// Reads orders-topic specifically (not keyed-topic) because keyed-topic has
+// mixed message formats from other examples — a JSON deserializer throws on
+// a non-JSON record and kills the poll loop, so JSON traffic gets its own
+// topic. A topic should generally carry one consistent message schema.
 public class JsonConsumer {
 
     public static void main(String[] args) {

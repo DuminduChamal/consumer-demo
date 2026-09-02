@@ -10,6 +10,13 @@ import java.time.Duration;
 import java.util.Collections;
 import java.util.Properties;
 
+// Change vs. SimpleConsumer: enable.auto.commit=false, with an explicit
+// commitSync() called only after a batch is fully processed. Auto-commit
+// advances the offset on a timer regardless of whether processing actually
+// finished, which can lose records on a crash; committing after processing
+// gives at-least-once delivery instead — reprocessing possible, nothing
+// skipped. The artificial per-record sleep just widens the window to kill
+// the process mid-batch and observe that reprocessing happen.
 public class ManualCommitConsumer {
 
     public static void main(String[] args) {
