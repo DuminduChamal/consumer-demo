@@ -20,6 +20,11 @@
             <artifactId>kafka-clients</artifactId>
             <version>4.3.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.21.2</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -31,7 +36,8 @@
                 <configuration>
 <!--                    <mainClass>com.learning.kafka.SimpleConsumer</mainClass>-->
 <!--                    <mainClass>com.learning.kafka.ManualCommitConsumer</mainClass>-->
-                    <mainClass>com.learning.kafka.AsyncCommitConsumer</mainClass>
+<!--                    <mainClass>com.learning.kafka.AsyncCommitConsumer</mainClass>-->
+                    <mainClass>com.learning.kafka.JsonConsumer</mainClass>
                 </configuration>
             </plugin>
         </plugins>
