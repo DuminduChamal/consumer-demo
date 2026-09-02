@@ -1,7 +1,0 @@
-com/learning/kafka/JsonDeserializer.class
-com/learning/kafka/AsyncCommitConsumer.class
-com/learning/kafka/OrderEvent.class
-com/learning/kafka/ManualCommitConsumer.class
-com/learning/kafka/SimpleConsumer$1.class
-com/learning/kafka/JsonConsumer.class
-com/learning/kafka/SimpleConsumer.class
