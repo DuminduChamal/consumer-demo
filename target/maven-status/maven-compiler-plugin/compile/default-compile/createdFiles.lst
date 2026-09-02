@@ -1,1 +1,3 @@
 com/learning/kafka/SimpleConsumer.class
+com/learning/kafka/ManualCommitConsumer.class
+com/learning/kafka/SimpleConsumer$1.class

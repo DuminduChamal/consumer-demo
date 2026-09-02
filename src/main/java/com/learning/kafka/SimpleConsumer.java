@@ -5,6 +5,9 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.apache.kafka.clients.consumer.ConsumerRebalanceListener;
+import org.apache.kafka.common.TopicPartition;
+import java.util.Collection;
 
 import java.time.Duration;
 import java.util.Collections;
@@ -27,7 +30,17 @@ public class SimpleConsumer {
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 
         try (KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props)) {
-            consumer.subscribe(Collections.singletonList("keyed-topic"));
+            consumer.subscribe(Collections.singletonList("keyed-topic"), new ConsumerRebalanceListener() {
+                @Override
+                public void onPartitionsRevoked(Collection<TopicPartition> partitions) {
+                    System.out.println("Partitions revoked: " + partitions);
+                }
+
+                @Override
+                public void onPartitionsAssigned(Collection<TopicPartition> partitions) {
+                    System.out.println("Partitions assigned: " + partitions);
+                }
+            });
 
             System.out.println("Polling for messages... (Ctrl+C to stop)");
             while (true) {
