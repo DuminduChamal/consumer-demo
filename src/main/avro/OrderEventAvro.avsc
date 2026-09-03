@@ -2,9 +2,12 @@
   "type": "record",
   "name": "OrderEventAvro",
   "namespace": "com.learning.kafka",
+  "doc": "Avro counterpart to OrderEvent (the hand-written JSON POJO). Registered with Schema Registry under subject avro-orders-topic-value; compatibility mode is BACKWARD.",
   "fields": [
     { "name": "orderId", "type": "string" },
     { "name": "amount", "type": "double" },
-    { "name": "timestamp", "type": "long" }
+    { "name": "timestamp", "type": "long" },
+    { "name": "customerId", "type": "string", "default": "default-customer",
+      "doc": "Added as schema version 2. Required a default to register successfully under BACKWARD compatibility - old records without this field are read back with this default value." }
   ]
 }
