@@ -52,6 +52,13 @@ want by setting `mainClass` in `pom.xml`, then:
 mvn compile exec:java
 ```
 
+**If this throws `ClassNotFoundException` for a class that clearly exists**
+— especially right after a schema or source change — run `mvn compile` and
+`mvn exec:java` as two separate commands instead. Hit this intermittently in
+`producer-demo` while iterating on Avro schema changes (see that README for
+details); splitting the combined command into two invocations worked
+reliably both times.
+
 ## Examples, in the order they were built
 
 ### 1. `SimpleConsumer`
