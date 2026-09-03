@@ -1,5 +1,7 @@
-package com.learning.kafka;
+package com.learning.kafka.consumer;
 
+import com.learning.kafka.deserializer.JsonDeserializer;
+import com.learning.kafka.dto.OrderEvent;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;

@@ -1,4 +1,4 @@
-package com.learning.kafka;
+package com.learning.kafka.dto;
 
 public class OrderEvent {
     private String orderId;

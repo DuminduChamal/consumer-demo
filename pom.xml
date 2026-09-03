@@ -50,11 +50,11 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.2.0</version>
                 <configuration>
-<!--                    <mainClass>com.learning.kafka.SimpleConsumer</mainClass>-->
-<!--                    <mainClass>com.learning.kafka.ManualCommitConsumer</mainClass>-->
-<!--                    <mainClass>com.learning.kafka.AsyncCommitConsumer</mainClass>-->
-<!--                    <mainClass>com.learning.kafka.JsonConsumer</mainClass>-->
-                    <mainClass>com.learning.kafka.AvroConsumer</mainClass>
+<!--                    <mainClass>com.learning.kafka.consumer.SimpleConsumer</mainClass>-->
+<!--                    <mainClass>com.learning.kafka.consumer.ManualCommitConsumer</mainClass>-->
+<!--                    <mainClass>com.learning.kafka.consumer.AsyncCommitConsumer</mainClass>-->
+<!--                    <mainClass>com.learning.kafka.consumer.JsonConsumer</mainClass>-->
+                    <mainClass>com.learning.kafka.consumer.AvroConsumer</mainClass>
                 </configuration>
             </plugin>
             <plugin>
