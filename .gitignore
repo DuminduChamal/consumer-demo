@@ -11,3 +11,6 @@ target/
 
 # Logs
 *.log
+
+# Claude Code local context
+CLAUDE.md
