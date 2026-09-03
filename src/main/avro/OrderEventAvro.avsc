@@ -1,0 +1,10 @@
+{
+  "type": "record",
+  "name": "OrderEventAvro",
+  "namespace": "com.learning.kafka",
+  "fields": [
+    { "name": "orderId", "type": "string" },
+    { "name": "amount", "type": "double" },
+    { "name": "timestamp", "type": "long" }
+  ]
+}
